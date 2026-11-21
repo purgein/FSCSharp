@@ -10,22 +10,25 @@ namespace BlastyBird
     public class Bird : VisibleGameObject
     {
         #region Constructors
-        public Bird()
+        public Bird(Vector2 location)
         {
+            Location = location;
+
             var texture = Raylib.LoadTexture("Resources/bird.png");
             Body = new Sprite(texture, 0.5f);
+
         }
         #endregion
 
         #region Overrides
-        public override void Draw(float delta)
+        public override void Update(float delta)
         {
             
         }
 
-        public override void Update(float delta)
+        public override void Draw(float delta)
         {
-            
+            Body.Draw(Location);
         }
         #endregion
 
